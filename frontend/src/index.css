@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #0a0b0f;
+    color: #e2e8f0;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0f1117; }
+  ::-webkit-scrollbar-thumb { background: #2e3a50; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #00d4aa; }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-800 border border-surface-600 rounded-xl p-6 shadow-card;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-surface-900 font-semibold px-5 py-2.5 rounded-lg
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
+           active:scale-95 shadow-accent;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-600 hover:bg-surface-500 text-slate-200 font-medium px-5 py-2.5 rounded-lg
+           border border-surface-400 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 hover:text-slate-200 hover:bg-surface-600 px-4 py-2 rounded-lg
+           transition-all duration-200;
+  }
+
+  .input {
+    @apply w-full bg-surface-700 border border-surface-500 rounded-lg px-4 py-2.5 text-slate-200
+           placeholder-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-all duration-200 text-sm;
+  }
+
+  .select {
+    @apply w-full bg-surface-700 border border-surface-500 rounded-lg px-4 py-2.5 text-slate-200
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-all duration-200 text-sm cursor-pointer;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wider;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-profit {
+    @apply badge bg-profit/15 text-profit border border-profit/20;
+  }
+
+  .badge-loss {
+    @apply badge bg-loss/15 text-loss border border-loss/20;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning/15 text-warning border border-warning/20;
+  }
+
+  .badge-info {
+    @apply badge bg-info/15 text-info border border-info/20;
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-1;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #161b27 25%, #1c2333 50%, #161b27 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .profit-text { @apply text-profit font-mono; }
+  .loss-text { @apply text-loss font-mono; }
+  .neutral-text { @apply text-slate-400 font-mono; }
+}
